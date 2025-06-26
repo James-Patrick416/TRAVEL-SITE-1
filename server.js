@@ -5,10 +5,7 @@ const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
-server.use("/bookings", router);
-server.use("/favorites", router);
-server.use("/destinations", router);
-server.use(router);
+server.use(router); // mount once at root
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
