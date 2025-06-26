@@ -29,7 +29,7 @@ startBtn.addEventListener('click', () => {
 
 
 // ========== Load Destinations (GET) ==========
-fetch("http://localhost:3000/destinations")
+fetch("https://travel-site-1-ep8o.onrender.com/destinations")
   .then(res => res.json())
   .then(data => {
     const grid = document.getElementById('card-grid');
@@ -107,7 +107,7 @@ bookingForm.addEventListener('submit', (e) => {
   const email = bookingForm.elements['email'].value;
   const destination = modalTitle.textContent.replace('Book: ', '');
 
-  fetch("http://localhost:3000/bookings", {
+  fetch("https://travel-site-1-ep8o.onrender.com/bookings", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, destination })
@@ -145,7 +145,7 @@ const addFavoriteBtn = document.getElementById('add-favorite');
 const favoritesList = document.getElementById('favorites-list');
 
 function fetchFavorites() {
-  fetch("http://localhost:3000/favorites")
+  fetch("https://travel-site-1-ep8o.onrender.com/favorites")
     .then(res => res.json())
     .then(data => renderFavorites(data));
 }
@@ -178,7 +178,7 @@ addFavoriteBtn.addEventListener('click', (e) => {
   const value = favoriteInput.value.trim();
   if (!value) return;
 
-  fetch("http://localhost:3000/favorites", {
+  fetch("https://travel-site-1-ep8o.onrender.com/favorites", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name: value })
@@ -194,7 +194,7 @@ favoritesList.addEventListener('click', (e) => {
   const id = e.target.dataset.id;
 
   if (e.target.classList.contains('remove-fav')) {
-    fetch(`http://localhost:3000/favorites/${id}`, { method: "DELETE" })
+    fetch(`https://travel-site-1-ep8o.onrender.com/favorites/${id}`, { method: "DELETE" })
       .then(() => fetchFavorites());
   }
 
@@ -203,7 +203,7 @@ favoritesList.addEventListener('click', (e) => {
     const newName = prompt("Edit favorite name:", currentName);
     if (!newName || newName === currentName) return;
 
-    fetch(`http://localhost:3000/favorites/${id}`, {
+    fetch(`https://travel-site-1-ep8o.onrender.com/favorites/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: newName })
@@ -215,15 +215,15 @@ document.addEventListener('click', function (e) {
   if (e.target.classList.contains('fav-icon')) {
     const title = e.target.dataset.title;
 
-    fetch("http://localhost:3000/favorites")
+    fetch("https://travel-site-1-ep8o.onrender.com/favorites")
       .then(res => res.json())
       .then(favorites => {
         const match = favorites.find(f => f.name === title);
         if (match) {
-          fetch(`http://localhost:3000/favorites/${match.id}`, { method: "DELETE" })
+          fetch(`https://travel-site-1-ep8o.onrender.com/favorites/${match.id}`, { method: "DELETE" })
             .then(() => fetchFavorites());
         } else {
-          fetch("http://localhost:3000/favorites", {
+          fetch("https://travel-site-1-ep8o.onrender.com/favorites", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name: title })
