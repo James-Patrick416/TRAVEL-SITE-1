@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic meta tags for character set and responsive viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Page title that appears in browser tab -->
+  <title>Travel Site Intro</title>
+  <!-- Link to external CSS stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background image div that will be styled in CSS -->
+  <div class="background-image"></div>
+  
+  <!-- Overlay div for the introductory content that appears first -->
+  <div id="overlay">
+    <div class="intro-content">
+      <h2>Hello Traveller</h2>
+      <!-- Button to start exploring (hides overlay) -->
+      <button id="start-button">Start Exploring</button>                                    
+    </div>
+  </div>
+
+  <!-- Main content section that appears after overlay is hidden -->
+  <main id="main">
+    <!-- Grid container for flip cards (populated by JavaScript) -->
+    <div class="flipcard-grid" id="card-grid"></div>
+    <h1>Welcome to Paradise</h1>
+    <p>Start your adventure...</p>
+  </main>
+
+  <!-- Search section for finding destinations -->
+  <section class="search-section">
+    <h2>Find Your Destination</h2>
+    <!-- Input field for searching destinations -->
+    <input type="text" id="search-input" placeholder="Search destinations..." />
+    <!-- Message shown when no search results are found (hidden by default) -->
+    <p id="no-results" style="display: none; color: #fff; margin-top: 1rem">No destinations found</p>
+  </section>
+
+  <!-- Favorites section for saving preferred destinations -->
+  <section class="favorites-section">
+    <h2>My Favorite Destinations</h2>
+    <div class="favorites-form">
+      <!-- Input for adding new favorites -->
+      <input type="text" id="favorite-input" placeholder="Add a destination..." />
+      <!-- Button to add the favorite -->
+      <button id="add-favorite" type="button">Add</button>
+    </div>
+    <!-- List that will contain all favorite destinations -->
+    <ul id="favorites-list" class="favorites-list"></ul>
+  </section>
+
+  <!-- Modal popup for booking trips (hidden by default) -->
+  <div id="booking-modal" class="modal">
+    <div class="modal-content">
+      <!-- Close button for the modal -->
+      <span class="close-modal">&times;</span>
+      <h2 id="modal-destination">Book Your Trip</h2>
+      <!-- Booking form with required fields -->
+      <form id="booking-form">
+        <label>Name:</label>
+        <input type="text"  name="name" required />
+
+        <label>Email:</label>
+        <input type="email" name="email" required />
+
+        <label>Travel Date:</label>
+        <input type="date" name="date" required />
+
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation popup that appears after successful booking (hidden by default) -->
+  <div id="confirmation-popup" class="confirmation">
+    <p id="confirmation-message">Booking Confirmed</p>
+  </div>
+
+  <!-- External JavaScript files -->
+  <!-- Configuration file likely containing destination data -->
+  <script src="config.js"></script>
+  <!-- Main JavaScript file with application logic -->
+  <script src="script.js"></script>
+</body>
+</html>
