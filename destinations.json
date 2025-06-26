@@ -2,19 +2,19 @@
   "destinations": [
     {
       "title": "Shanghai",
-      "image": "/images/shanghai.jpg",
+      "image": "../images/shanghai.jpg",
       "info": "Explore neon streets & ancient shrines.",
       "id": "4fb0"
     },
     {
       "title": "United Kingdom",
-      "image": "/images/uk.jpg",
+      "image": "../images/uk.jpg",
       "info": "Discover castles, tea culture, and the Queen’s land.",
       "id": "474a"
     },
     {
       "title": "India",
-      "image": "/images/india.jpg",
+      "image": "../images/india.jpg",
       "info": "Experience vibrant festivals and spiritual journeys.",
       "id": "7ba5"
     }
