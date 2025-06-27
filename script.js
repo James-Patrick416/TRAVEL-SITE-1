@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ========== Load Destinations ==========
-  fetch("https://travel-site-1-ep8o.onrender.com")
+  fetch("https://travel-site-1-ep8o.onrender.com/destinations")
     .then(res => res.json())
     .then(data => {
       const grid = document.getElementById('card-grid');
