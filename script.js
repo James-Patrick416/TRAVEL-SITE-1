@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ========== Load Destinations ==========
-  fetch("https://your-backend.onrender.com/destinations")
+  fetch("https://travel-site-1-ep8o.onrender.com")
     .then(res => res.json())
     .then(data => {
       const grid = document.getElementById('card-grid');
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = bookingForm.elements['email'].value;
     const destination = modalTitle.textContent.replace('Book: ', '');
 
-    fetch("https://your-backend.onrender.com/bookings", {
+    fetch("https://travel-site-1-ep8o.onrender.com/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, destination })
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const favoritesList = document.getElementById('favorites-list');
 
   function fetchFavorites() {
-    fetch("https://your-backend.onrender.com/favorites")
+    fetch("https://travel-site-1-ep8o.onrender.com/favorites")
       .then(res => res.json())
       .then(data => renderFavorites(data));
   }
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const value = favoriteInput.value.trim();
     if (!value) return;
 
-    fetch("https://your-backend.onrender.com/favorites", {
+    fetch("https://travel-site-1-ep8o.onrender.com/favorites", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: value })
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const id = e.target.dataset.id;
 
     if (e.target.classList.contains('remove-fav')) {
-      fetch(`https://your-backend.onrender.com/favorites/${id}`, { method: "DELETE" })
+      fetch(`https://travel-site-1-ep8o.onrender.com/favorites/${id}`, { method: "DELETE" })
         .then(() => fetchFavorites());
     }
 
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const newName = prompt("Edit favorite name:", currentName);
       if (!newName || newName === currentName) return;
 
-      fetch(`https://your-backend.onrender.com/favorites/${id}`, {
+      fetch(`https://travel-site-1-ep8o.onrender.com/favorites/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: newName })
@@ -215,15 +215,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.classList.contains('fav-icon')) {
       const title = e.target.dataset.title;
 
-      fetch("https://your-backend.onrender.com/favorites")
+      fetch("https://travel-site-1-ep8o.onrender.com/favorites")
         .then(res => res.json())
         .then(favorites => {
           const match = favorites.find(f => f.name === title);
           if (match) {
-            fetch(`https://your-backend.onrender.com/favorites/${match.id}`, { method: "DELETE" })
+            fetch(`https://travel-site-1-ep8o.onrender.com/favorites/${match.id}`, { method: "DELETE" })
               .then(() => fetchFavorites());
           } else {
-            fetch("https://your-backend.onrender.com/favorites", {
+            fetch("https://travel-site-1-ep8o.onrender.com/favorites", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ name: title })
